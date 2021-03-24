@@ -10,15 +10,12 @@ import java.util.Date;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
-public class Patient {
+public class Medecin {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
-    private int score;
-    private  boolean malade;
+    private String specialite;
 
-    @ManyToOne
-    private Medecin medecin;
 }
