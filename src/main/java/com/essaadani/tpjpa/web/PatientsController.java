@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
+@RequestMapping("/api")
 public class PatientsController {
     @Autowired
     PatientRepository patientRepository;
@@ -55,21 +57,21 @@ public class PatientsController {
     }
 
 
-    @PatchMapping("/patients/{id}")
+    @PutMapping("/patients/{id}")
     public ResponseEntity<Patient> update(@PathVariable Long id, @RequestBody Patient patient){
         try{
             Optional<Patient> patientOptional = patientRepository.findById(id);
 
-            if(!patientOptional.isPresent())
+            if(patientOptional.isEmpty())
                 return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 
             Patient _patient = patientOptional.get();
-            patient.setNom(patient.getNom());
-            patient.setDateNaissance(patient.getDateNaissance());
-            patient.setMalade(patient.isMalade());
-            patient.setMedecin(patient.getMedecin());
-            patient.setScore(patient.getScore());
-            patientRepository.save(patient);
+            _patient.setNom(patient.getNom());
+            _patient.setDateNaissance(patient.getDateNaissance());
+            _patient.setMalade(patient.isMalade());
+            _patient.setMedecin(patient.getMedecin());
+            _patient.setScore(patient.getScore());
+            patientRepository.save(_patient);
 
             return new ResponseEntity<>(_patient, HttpStatus.OK);
 
