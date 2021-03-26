@@ -30,6 +30,7 @@ public class TpJpaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
     }
 
         /*patientRepository.save(new Patient(null, "Mohamed", new Date(), 9887, false));

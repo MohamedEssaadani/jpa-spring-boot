@@ -23,7 +23,7 @@ public class MedecinsController {
             List<Medecin> medecinList = medecinRepository.findAll();
 
             if(medecinList.isEmpty())
-                return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
             return new ResponseEntity<>(medecinList, HttpStatus.OK);
         }catch(Exception ex){
