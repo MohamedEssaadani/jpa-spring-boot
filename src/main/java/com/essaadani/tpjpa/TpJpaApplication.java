@@ -26,8 +26,12 @@ public class TpJpaApplication implements CommandLineRunner {
         SpringApplication.run(TpJpaApplication.class, args);
     }
 
+
+
     @Override
     public void run(String... args) throws Exception {
+    }
+
         /*patientRepository.save(new Patient(null, "Mohamed", new Date(), 9887, false));
         patientRepository.save(new Patient(null, "Asmaa", new Date(), 3434, false));
         patientRepository.save(new Patient(null, "Adam", new Date(), 6666, false));
@@ -96,7 +100,7 @@ public class TpJpaApplication implements CommandLineRunner {
 
 
 
-
+        /*
         //Medecins
         //Ajouter des medecins
         medecinRepository.save(new Medecin(null, "Es-saadani", new Date(), "General"));
@@ -146,5 +150,6 @@ public class TpJpaApplication implements CommandLineRunner {
            System.out.println(m.getNom());
             });
 
-    }
+    }*/
+
 }

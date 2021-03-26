@@ -1,7 +1,6 @@
 package com.essaadani.tpjpa.web;
 
 import com.essaadani.tpjpa.entities.Medecin;
-import com.essaadani.tpjpa.entities.Patient;
 import com.essaadani.tpjpa.repositories.MedecinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,7 +56,7 @@ public class MedecinsController {
         }
     }
 
-    @PutMapping("/patients/{id}")
+    @PutMapping("/medecins/{id}")
     public ResponseEntity<Medecin> update(@PathVariable Long id, @RequestBody Medecin medecin){
         try{
             Optional<Medecin> medecinOptional = medecinRepository.findById(id);
