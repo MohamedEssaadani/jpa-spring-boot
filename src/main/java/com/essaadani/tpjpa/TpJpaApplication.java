@@ -29,28 +29,32 @@ public class TpJpaApplication implements CommandLineRunner {
 
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String[] args) throws Exception {
 
-    }
 
-        /*patientRepository.save(new Patient(null, "Mohamed", new Date(), 9887, false));
-        patientRepository.save(new Patient(null, "Asmaa", new Date(), 3434, false));
-        patientRepository.save(new Patient(null, "Adam", new Date(), 6666, false));
-        patientRepository.save(new Patient(null, "Hicham", new Date(), 22222, false));
-        patientRepository.save(new Patient(null, "Saloi", new Date(), 8758, false));
-        patientRepository.save(new Patient(null, "Khalid", new Date(), 8758, true));
+        //Ajouter des patients
+        patientRepository.save(new Patient(null, "Mohamed", new Date(), 9887, false, medecinRepository.findById(1L).get()));
+        patientRepository.save(new Patient(null, "Asmaa", new Date(), 3434, false, medecinRepository.findById(1L).get()));
+        patientRepository.save(new Patient(null, "Adam", new Date(), 6666, false, medecinRepository.findById(1L).get()));
+        patientRepository.save(new Patient(null, "Hicham", new Date(), 22222, false, medecinRepository.findById(1L).get()));
+        patientRepository.save(new Patient(null, "Saloi", new Date(), 8758, false, medecinRepository.findById(1L).get()));
+        patientRepository.save(new Patient(null, "Khalid", new Date(), 8758, true, medecinRepository.findById(1L).get()));
 
         System.out.println("************************************");
-
+        //Afficher tous les patients
         patientRepository.findAll().forEach(p -> {
             System.out.println(p.toString());
         });
 
+
         System.out.println("************************************");
+        //rechercher un patient par son id
         Patient patient = patientRepository.findById(4L).get();
         System.out.println(patient.toString());
 
+
         System.out.println("************************************");
+        //rechercher les patients  par nom
         patientRepository.findByNomContains("m")
                 .forEach(p->{
                     System.out.println(p.getNom());
@@ -58,33 +62,35 @@ public class TpJpaApplication implements CommandLineRunner {
 
 
         System.out.println("************************************");
+        //rechercher les patients par malade
         patientRepository.findByMalade(true)
                 .forEach(p->{
                     System.out.println(p.getNom());
                 });
 
         System.out.println("************************************");
+        //rechercher les patients par nom et malade
         patientRepository.findByNomContainsAndMalade("K", true)
                 .forEach(p->{
-        System.out.println(p.getNom());
-        });
+                    System.out.println(p.getNom());
+                });
 
-        //delete:
-        //patientRepository.deleteById(1L);
+        //Supprimer un patient
+        patientRepository.deleteById(1L);
 
-        //System.out.println("************************************");
-        //patientRepository.findAll()
-          //      .forEach(p->{
-            //        System.out.println(p.getNom());
-              //  });
+        System.out.println("************************************");
+        patientRepository.findAll()
+              .forEach(p->{
+               System.out.println(p.getNom());
+         });
 
         System.out.println("************ utilisé la pagination ******************");
-        //donne moi dans la page 0, 2 patients PageRequest.of(0, 2) => Mohamed et Asmaa
-        //donne moi dans la page 1, 2 patients PageRequest.of(1, 2) => Adam et Hicham
-        //on a 5 enregistrement => alors on a 3 pages
+
+        //Pagination
+        //la pagination (donne moi dans la page 1, deux patients)
         Page<Patient> pagePatients = patientRepository.findAll(PageRequest.of(1, 2));
         List<Patient> listPatients = pagePatients.getContent();
-         listPatients.forEach(p->{
+        listPatients.forEach(p->{
             System.out.println(p.getNom());
         });
 
@@ -96,9 +102,6 @@ public class TpJpaApplication implements CommandLineRunner {
         pagePatients2.forEach(p->{
             System.out.println(p.getNom());
         });
-
-         */
-
 
 
         /*
@@ -152,5 +155,8 @@ public class TpJpaApplication implements CommandLineRunner {
             });
 
     }*/
+    }
+
+
 
 }

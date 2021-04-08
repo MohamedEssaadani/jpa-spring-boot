@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface PatientRepository extends JpaRepository<Patient, Long> {
     public List<Patient> findByNomContains(String motCle);
-    // utilisé la pagination, il va retourner la liste des patients avec la pagination
     public Page<Patient> findByNomContains(String motCle, Pageable pageable);
     public List<Patient> findByMalade(boolean estMalade);
     public List<Patient> findByNomContainsAndMalade(String motCle, boolean estMalade);
