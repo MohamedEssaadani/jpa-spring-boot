@@ -31,10 +31,9 @@ public class TpJpaApplication implements CommandLineRunner {
     @Override
     public void run(String[] args) throws Exception {
 
-
+/*
         //Ajouter des patients
         patientRepository.save(new Patient(null, "Mohamed", new Date(), 9887, false, medecinRepository.findById(1L).get()));
-        patientRepository.save(new Patient(null, "Asmaa", new Date(), 3434, false, medecinRepository.findById(1L).get()));
         patientRepository.save(new Patient(null, "Adam", new Date(), 6666, false, medecinRepository.findById(1L).get()));
         patientRepository.save(new Patient(null, "Hicham", new Date(), 22222, false, medecinRepository.findById(1L).get()));
         patientRepository.save(new Patient(null, "Saloi", new Date(), 8758, false, medecinRepository.findById(1L).get()));
@@ -156,7 +155,6 @@ public class TpJpaApplication implements CommandLineRunner {
 
     }*/
     }
-
 
 
 }
